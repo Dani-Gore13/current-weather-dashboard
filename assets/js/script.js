@@ -8,9 +8,8 @@ const weatherForecast = document.getElementById("weatherForecast");
 const cityNameElement = document.getElementById("cityName");
 const dateElements = document.querySelectorAll(".date");
 
-// Add a click event listener to the weather button
 weatherButton.addEventListener("click", () => {
-  // Fetch weather data from OpenWeatherMap API
+  // Fetch thingy
   fetch(WEATHER_URL)
     .then((response) => response.json())
     .then((data) => {
@@ -25,7 +24,9 @@ weatherButton.addEventListener("click", () => {
       // Display the weather forecast for each day
       forecasts.forEach((forecast, index) => {
         const date = new Date(forecast.dt_txt);
-        const temperature = Math.round((forecast.main.temp - 273.15) * 9/5 + 32) ; // Convert temperature from Kelvin to Celsius
+        const temperature = Math.round(
+          ((forecast.main.temp - 273.15) * 9) / 5 + 32
+        ); // Convert temperature from Kelvin to fahrenheit
         const description = forecast.weather[0].description;
         const dayOfWeek = getDayOfWeek(date.getDay());
 
@@ -45,13 +46,12 @@ weatherButton.addEventListener("click", () => {
         const descriptionElement = document.createElement("div");
         descriptionElement.textContent = description;
 
-        // Append the HTML elements to the weather forecast div
         dayElement.appendChild(dateElement);
         dayElement.appendChild(temperatureElement);
         dayElement.appendChild(descriptionElement);
         weatherForecast.appendChild(dayElement);
 
-        // Update the city name and date for the first day of the forecast
+        // City name and day with the date
         if (index === 0) {
           cityNameElement.textContent = data.city.name;
           dateElements.forEach(
@@ -68,7 +68,7 @@ weatherButton.addEventListener("click", () => {
     .catch((error) => console.error(error));
 });
 
-// Utility function to get the day of the week from a numeric value (0-6)
+// Utility function to get the day of the week
 function getDayOfWeek(day) {
   const daysOfWeek = [
     "Sunday",

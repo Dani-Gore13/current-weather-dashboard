@@ -1,16 +1,12 @@
 # current-weather-dashboard
 
-
 ## Current weather
 
 ## Description:
 
--
-
-## What has been changed:
-
--
+-This website includes a 5 day weather forecast for the Richmond VA area when you click the "Get Weather Forecast" button.
 
 ## Screenshot of Website:
 
-The following image shows the finised website:
+<img 
+src="./assets/screenshot/weather.jpg">
