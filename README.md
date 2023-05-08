@@ -10,3 +10,6 @@
 
 <img 
 src="./assets/screenshot/weather.jpg">
+
+## Published Site URL:
+- https://dani-gore13.github.io/current-weather-dashboard/
